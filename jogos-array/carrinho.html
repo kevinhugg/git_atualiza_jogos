@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho de Compras</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            font-size: 24px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            padding: 8px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .total {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Carrinho de Compras</h1>
+    </header>
+    <main>
+        <section>
+            <ul id="cart-items">
+            </ul>
+            <p class="total">Total: R$<span id="total">0.00</span></p>
+        </section>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Recupera o carrinho do localStorage ou inicializa como um array vazio
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartItems = document.getElementById('cart-items');
+            const totalElement = document.getElementById('total');
+
+            // Função para carregar os itens do carrinho
+            function renderCart() {
+                cartItems.innerHTML = ''; // Limpa a lista de itens
+
+                // Adiciona cada item ao carrinho na página
+                cart.forEach(item => {
+                    const li = document.createElement('li');
+                    li.textContent = `${item.name} - R$${item.price.toFixed(2)} x ${item.quantity}`;
+                    cartItems.appendChild(li);
+                });
+
+                // Calcula o total e exibe na página
+                calcularTotal();
+            }
+
+            // Função para calcular e exibir o preço total
+            function calcularTotal() {
+                const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+                totalElement.textContent = total.toFixed(2); // Atualiza o total exibido
+            }
+
+            // Renderiza o carrinho ao carregar a página
+            renderCart();
+        });
+    </script>
+</body>
+</html>

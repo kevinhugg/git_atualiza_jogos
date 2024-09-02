@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Login</title>
+</head>
+<body>
+
+    <header class="nav">
+
+        <div class="book"><a href="inicial.php"><h1>Gamescore</h1></a></div>
+
+      </header>
+
+      <div class="card">
+        <img src="log-in.png" id="can">
+        <br>
+        <form action="#.php" method="get">
+            <label for="email">Email:</label>
+            <input type="text" id="login" placeholder="insira seu email:">
+
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" placeholder="Insira sua senha:">
+
+            <br>
+            
+            <div class="bota">
+                <input type="button" value="ENVIAR" onclick="autenticar()" class="botao">
+            </div>
+            <p id="mensagem"></p>
+        </form>
+    </div>
+
+</body>
+</html>

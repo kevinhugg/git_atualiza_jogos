@@ -1,0 +1,303 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap');
+
+:root{
+    --color-purple-light: #8700ff;
+    --color-purple-normal: #6a1cb8;
+    --color-purpleblue-light: #6000ff;
+    --color-blue-black: #2d2a44;
+    --white: hsl(0, 0%, 100%);
+    --dark: hsl(0, 0%, 7%);
+    --text-gray: hsl(0, 3%, 20%);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    font-size: small;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+.fundo{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: rgb(5, 30, 82);
+    background-size: cover;
+    background-position: center;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    background-color: #1100ff;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 15px 15 px rgba(0, 0, 0, 0.05);
+    font-family: "Bona nova" serif;
+    z-index: 1;
+    color: #fff;
+}
+
+.login{
+    top: 5px;
+}
+
+.car{
+    height: 25px;
+    width: 25px;
+}
+
+.btn{
+    position: relative;
+    left: 10px;
+    top: 1px;
+    transition: o.5s ease-in-out;
+}
+
+header ul{
+    position: relative;
+    display: flex;
+    gap: 30px;
+}
+
+header ul li{
+    list-style: none;
+}
+
+header ul li a{
+    position: relative;
+    text-decoration: none;
+    font-size: 1em;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+}
+
+header ul li a::before{
+
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-blue-black);
+    transform: scaleX(0);
+    transition: transform 0.5s ease-in-out;
+    transform-origin: right;
+
+}
+
+header ul li a:hover::before{
+
+    transform: scaleX(1);
+    transform-origin: left;
+
+}
+
+.searchbox input{
+    width: 100%;
+    border: none;
+    outline: none;
+    height: 505;
+    font-size: 1.25em;
+    border-radius: 5px;
+}
+
+main {
+    padding: 20px;
+}
+
+h3{
+    color: #fff;
+    margin-top: 100px;
+    margin-bottom: -100px;
+    display: flex;
+    justify-content: space-around;
+    font-size: xx-large;
+}
+
+.container{
+    margin-top: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 300px;
+    gap: 10px;
+
+    > div{
+        flex: 0 0 200px;
+        border-radius: 0.5rem;
+        transition: 0.5 ease-in-out;
+        cursor: pointer;
+        box-shadow: 1px 5px 15px #1e0e3e;
+        position: relative;
+        overflow: hidden;
+
+        &:nth-of-type(1){
+            background: url(https://th.bing.com/th/id/OIP.YbgD4ijlwHtjad7lXoyODgHaEK?w=1280&h=720&rs=1&pid=ImgDetMain)
+            no-repeat 50% / cover;
+        }
+        &:nth-of-type(2){
+            background: url(https://psxbrasil.com.br/wp-content/uploads/2023/05/PS-Store-Grandes-Jogos-Grandes-Descontos-696x392.jpg)
+            no-repeat 50% / cover;
+        }
+        &:nth-of-type(3){
+            background: url(https://meups.com.br/wp-content/uploads/2021/05/Jogos-com-desconto-comprar-Amazon-900x503.jpg)
+            no-repeat 50% / cover;
+        }
+        &:nth-of-type(4){
+            background: url(https://github.com/kevinhugg/livraria/blob/main/livraria/IMG/FOTO/cidade.png?raw=true)
+            no-repeat 50% / cover;
+        }
+
+        .content{
+            font-family: "Ubuntu", monospace;
+            font-size: 1.5rem;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            opacity: 0;
+            flex-direction: column;
+            height: 100%;
+            justify-content: flex-end;
+            background: rgb(2, 2, 46);
+            background: linear-gradient(
+                0deg,
+                rgba(2, 2, 46, 0.6755077030812324) 0%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            transform: translateY(100%);
+            transition: opacity 0.5s ease-in-out, transform 0.5s 0.2s;
+            visibility: hidden;
+
+            span{
+                display: block;
+                margin-top: 5px;
+                font-size: 1.2rem;
+            }
+        }
+
+        &:hover{
+            flex: 0 0 400px;
+            box-shadow: 1px 3px 15px #7645d8;
+            transform: translateY(15px);
+        }
+
+        &:hover .content{
+            opacity: 1;
+            transform: translateY(0%);
+            visibility: visible;
+        }
+    }
+}
+
+/* Card */
+.card-container{
+  font-family: 'New Amsterdan', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.card{
+  background-image: linear-gradient(#fff, #fff);
+  overflow: hidden;
+  border-radius: 16px;
+  max-width: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: all .5s;
+}
+
+card:hover{
+  background-image: linear-gradient(whitesmoke, whitesmoke);
+}
+
+.card .img{
+  background-image: url(https://th.bing.com/th/id/R.bcd3dd82d649eb337ef55ed456176687?rik=WPKUkOgyc5fd0A&pid=ImgRaw&r=0);
+  background-position: center;
+  background-size: cover;
+  width: 90%;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 1px 5px 15px;
+  border-radius: 16px;
+  margin-top: 5px;
+  opacity: .9;
+  transition: all .5s;
+  z-index: 2;
+}
+
+.card:hover .img{
+  opacity: 1;
+  width: 250px;
+  margin-top: 0;
+}
+
+.card .conteudo-card{
+  padding: 0 20px;
+  height: 0;
+  opacity: 0;
+  transition: all .5s;
+  position: relative;
+  box-sizing: border-box;
+  transform: translateY(30px);
+}
+
+.card:hover .conteudo-card{
+  height: 260px;
+  padding: 20px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card .conteudo-card p{
+  margin-bottom: 0;
+}
+
+.card .conteudo-card .titulo{
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.card .conteudo-card .descricao-card{
+  font-size: 14px;
+  font-weight: 100;
+  opacity: .7;
+}
+
+.card .butao{
+  padding: 0px;
+  font-size: 15px;
+  margin-bottom: 15px;
+}
